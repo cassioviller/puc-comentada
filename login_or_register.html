@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícias Italianas - Cozinha Autêntica Italiana</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Reset some Bootstrap styles for consistency */
+        *,
+        *::before,
+        *::after {
+        box-sizing: border-box;
+        }
+
+        /* Cor de fundo geral e tipografia */
+        body {
+            background-color: #ffffff; /* branco */
+            color: #666666; /* cinza escuro */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Rótulos dos campos de formulário (labels) */
+        .form-label {
+            display: block; /* Garante que o rótulo ocupe sua própria linha */
+            margin-bottom: .5rem; /* Espaço abaixo do rótulo para separá-lo do campo de entrada */
+            text-align: left; /* Alinha o texto do rótulo à esquerda */
+            width: 80%; /* Largura alinhada com os campos de entrada */
+            margin-left: auto; /* Centraliza o rótulo horizontalmente */
+            margin-right: auto; /* Centraliza o rótulo horizontalmente */
+        }
+
+        /* Botões */
+        .btn {
+            background-color: #e50914; /* vermelho iFood */
+            color: #ffffff; /* branco */
+            border-color: #e50914; /* vermelho iFood */
+            font-weight: bold;
+            font-size: 16px; /* Tamanho aproximado para texto do corpo */
+            padding: 0.5rem 1rem; /* Preenchimento ajustado */
+            width: 80%; /* Largura ajustada */
+            margin: 1rem auto; /* Espaço após botões e centralização */
+            display: block; /* Faz o botão ser tratado como um bloco */
+            border-radius: 4px;
+        }
+
+        /* Campos de Entrada */
+        .form-control {
+            border: 1px solid #d1d1d1; /* cinza claro */
+            color: #333333; /* preto quase */
+            font-size: 16px; /* Tamanho aproximado para texto do corpo */
+            width: 80%; /* Largura ajustada para alinhar com o rótulo */
+            margin-bottom: 1rem; /* Espaço após campos de entrada */
+            padding: 0.375rem 0.75rem; /* Preenchimento interno */
+            display: block; /* Faz o campo de entrada ser tratado como um bloco */
+            margin-left: auto; /* Centraliza o campo horizontalmente */
+            margin-right: auto; /* Centraliza o campo horizontalmente */
+            border-radius: 4px;
+        }
+
+        /* Ajuste de espaçamento e alinhamento */
+        .container {
+            padding: 2rem;
+        }
+
+        .row {
+            margin: 0 -15px; /* Reset margem da linha */
+        }
+
+        .col-lg-6 {
+            padding: 0 15px; /* Espaçamento interno da coluna */
+        }
+
+        /* Links e ações interativas */
+        .nav-link {
+            color: #005bac; /* azul */
+        }
+
+        .nav-link:hover {
+            color: #e50914; /* vermelho iFood */
+            text-decoration: none; /* Remover sublinhado ao passar o mouse */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .col-lg-6 {
+                /* Empilha as colunas verticalmente em telas pequenas */
+                width: 100%;
+                max-width: 100%;
+                padding: 0 15px; /* Espaçamento interno para dispositivos móveis */
+            }
+
+            h3 {
+                margin-top: 1rem; /* Menos espaço no topo para dispositivos móveis */
+            }
+
+            .form-label,
+            .form-control,
+            .btn {
+                width: 100%; /* Ajusta a largura para 100% em dispositivos móveis */
+            }
+        }
+
+        #page {
+            margin-top: 100px;
+        }
+
+
+    </style>
+
+</head>
+<body class="body-fixed bg-white">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html" style="margin: auto;">
+                        <img src="logo.png" alt="Logo" style="max-height: 50px;">
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container" id="page">
+            <div class="row">
+                <!-- Login Form -->
+                <div class="col-lg-6 mb-4">
+                    <h3 class="text-dark text-center mb-4">Já tem conta? Faça login aqui!</h3>
+                    <form id="loginForm" class="g-3">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label text-secondary">Email:</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label text-secondary">Senha:</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary" onclick="login()">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Registration Form -->
+                <div class="col-lg-6">
+                    <h3 class="text-dark text-center mb-4">Não tem conta? Se cadastre aqui!</h3>
+                    <form id="registrationForm" class="g-3">
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-secondary">Nome:</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-secondary">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-secondary">Senha:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label text-secondary">Confirme sua Senha:</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary" onclick="register()">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

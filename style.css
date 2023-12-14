@@ -1,0 +1,2242 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+/* Define 'Poppins' como a fonte padrão do corpo do documento, melhora a legibilidade do texto e define a cor de fundo. */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    background: #f3f3f5;
+}
+
+/* Estiliza elementos com a classe 'body-fixed' para terem posição fixa, ocupando toda a tela. */
+.body-fixed {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: auto;
+    left: auto;
+}
+
+/* Esconde a barra de rolagem horizontal em todo o documento. */
+body, html {
+    overflow-x: hidden;
+}
+
+/* Define que as imagens não devem ultrapassar a largura total do seu contêiner. */
+img {
+    max-width: 100%;
+}
+
+/* Estiliza o cabeçalho do site para ser fixo, alinhado e animado suavemente. */
+.site-header {
+    position: fixed;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.5s;
+    border-bottom: 1px solid transparent;
+}
+
+.site-header.sticky_head {
+    background: rgb(255 255 255 / 80%);
+    padding: 20px 0;
+    border-color: #f2f2f2;
+    backdrop-filter: blur(20px);
+}
+
+/* Estiliza a navegação principal para alinhar os itens à direita. */
+.main-navigation {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Estiliza os itens de lista dentro da navegação para serem exibidos em linha. */
+.main-navigation .menu li {
+    display: inline-block;
+    position: relative;
+    margin: 0 6px;
+}
+
+/* Remove a margem esquerda do primeiro item da lista. */
+.main-navigation .menu li:first-child {
+    margin-left: 0;
+}
+
+/* Remove a margem direita do último item da lista. */
+.main-navigation .menu li:last-child {
+    margin-right: 0;
+}
+
+/* Estiliza submenus com umu efeito ao passar o mouse sobre os itens da lista. */
+.main-navigation .menu li:hover>ul, .main-navigation .menu li.focus>ul {
+    opacity: 1;
+    margin-top: 6px;
+    visibility: visible;
+}
+
+/* Remove a decoração padrão de todos os links. */
+a {
+    background-color: transparent;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+/* Remove estilos padrão de todas as listas não ordenadas (ul). */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Define a largura dos links dentro dos submenus. */
+.main-navigation .menu ul a {
+    width: 200px;
+}
+
+/* Define a propriedade 'left' dos submenus para 'auto' quando um item da lista é focado ou passado o mouse por cima. Isso ajuda na apresentação visual dos submenus. */
+.main-navigation .menu li:hover>ul, .main-navigation .menu li.focus>ul {
+    left: auto;
+}
+
+/* Estiliza os links na navegação principal. */
+.main-navigation .menu li a {
+    display: flex;
+    transition: 0.3s;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #0d0d25;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 5px 18px;
+    border-radius: 30px;
+}
+
+/* Define os estilos para os links quando são passados o mouse por cima ou estão ativos. Muda a cor, o fundo e aplica uma sombra interna. */
+.main-navigation .menu li a:hover, .main-navigation .menu li .active-menu, .main-navigation .menu .sub-menu li .active-sub-menu {
+    color: #ff8243;
+    background: #f3f3f5;
+    box-shadow: inset 8px 8px 12px #e2e2e2, inset -8px -8px 12px #ffffff;
+}
+
+/* Estiliza o lado direito do cabeçalho. Usa Flexbox para alinhamento e permite que os itens se encaixem em várias linhas se necessário. */
+.header-right {
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Define o estilo dos botões no cabeçalho. São quadrados com bordas arredondadas, centralizados usando Flexbox e com sombra interna. */
+.header-btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 20px;
+    transition: 0.3s;
+    box-shadow: inset 6px 6px 7px #dadada, inset -6px -6px 7px #ffffff;
+    align-items: center;
+}
+
+/* Estilo para o indicador de número de itens no carrinho. Posicionado de forma absoluta para aparecer no canto superior direito do botão do carrinho. */
+.cart-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #ffffff;
+    font-size: 12px;
+    border: 1px solid #bfbfbf;
+    color: #ff8243;
+}
+
+/* Efeito hover para os botões do cabeçalho. Muda o fundo para um gradiente e aplica uma sombra externa mais proeminente. */
+.header-btn:hover {
+    background: linear-gradient(145deg, #dcdcdc, #ffffff);
+    box-shadow: 20px 20px 60px #cfcfd0, -20px -20px 60px #ffffff;
+}
+
+/* Posicionamento relativo para o formulário de pesquisa no cabeçalho, permitindo o posicionamento absoluto de elementos filhos. */
+.header-search-form {
+    position: relative;
+}
+
+/* Classe utilitária para garantir que um elemento seja exibido como um bloco. O '!important' força essa propriedade, sobrescrevendo outros estilos. */
+.for-des {
+    display: block !important;
+}
+
+/* Estiliza o botão do formulário de pesquisa. Ele é posicionado absolutamente dentro do formulário para alinhar à direita. */
+.header-search-form button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 48px;
+    height: 100%;
+    opacity: 0.5;
+}
+
+/* Estiliza a caixa de entrada de texto do formulário de pesquisa. Define a largura, altura, tamanho da fonte e o preenchimento. */
+.header-search-form .form-input {
+    font-size: 14px;
+    padding-right: 40px;
+    width: 200px;
+    height: 40px;
+}
+
+/* Define a cor do texto do placeholder para todos os inputs do formulário. */
+.form-input::placeholder {
+    color: rgba(70 69 71 / 0.7);
+}
+
+/* Define o estilo global para os inputs do formulário. Remove a borda, define o raio da borda, o fundo e a sombra. */
+.form-input {
+    width: 100%;
+    height: 50px;
+    outline: none !important;
+    padding: 10px 15px;
+    color: #0d0d25;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    border: none;
+    background: #f8f8f8;
+    box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
+}
+
+/* Remove a cor de destaque padrão ao tocar em um link ou botão em dispositivos móveis. */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Estiliza os ícones da biblioteca Uicons com uma cor específica. */
+.uil {
+    color: #ff8243;
+}
+
+/* Esconde o botão de menu em telas com largura maior que 992px. */
+@media screen and (min-width: 992px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Define a largura máxima do contêiner para telas maiores que 1500px. */
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1368px;
+    }
+}
+
+/* Em telas acima de 2100px, ajusta a largura máxima do contêiner e aumenta o tamanho da fonte e a altura da linha para vários elementos. */
+@media (min-width: 2100px) {
+    .container {
+        max-width: 1400px;
+    }
+    p, body, button, input {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+/* Para telas menores que 1399px, ajusta as margens dos elementos do cabeçalho e dos itens do menu. */
+@media (max-width: 1399px) {
+    .header-right {
+        margin-left: 20px;
+    }
+    .main-navigation .menu li {
+        margin: 0 3px;
+    }
+}
+
+/* Em telas menores que 1199px, faz mais ajustes para responsividade, incluindo mudanças nas margens, preenchimento, tamanho da fonte e largura dos inputs do formulário. */
+@media (max-width: 1199px) {
+    .header-btn {
+        margin-left: 10px;
+    }
+    .header-right {
+        margin-left: 10px;
+    }
+    .main-navigation .menu li {
+        margin: 0;
+    }
+    .main-navigation .menu li a {
+        padding: 4px 15px;
+        font-size: 15px;
+    }
+    .header-search-form .form-input {
+        width: 170px;
+    }
+}
+
+/* Ajusta o preenchimento superior e inferior das seções para 85px em dispositivos menores. */
+@media (max-width: 991px) {
+    .section {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+    .for-des {
+        display: none !important;
+    }
+    .for-mob {
+        display: block !important;
+    }
+
+     /* Estiliza o contêiner dentro do cabeçalho para ocupar toda a largura disponível, sem preenchimento e com altura total. */
+    .site-header .container {
+        max-width: 100%;
+        padding: 0;
+        height: 100%;
+    }
+
+     /* Define a margem e a altura da linha dentro do cabeçalho. */
+    .site-header .container .row {
+        margin: 0;
+        height: 100%;
+    }
+
+     /* Estiliza a coluna que contém o logotipo. Posiciona absolutamente e alinha o conteúdo ao centro. */
+    .site-header .container .row .col-lg-2 {
+        width: auto;
+        padding: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+
+     /* Estiliza o botão de menu em dispositivos móveis. */
+    .menu-toggle {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        border: none;
+        outline: none !important;
+        background: transparent;
+        width: 40px;
+        height: 40px;
+        transform: translate(0, -50%);
+        z-index: 100;
+        box-shadow: inset 6px 6px 7px #dadada, -6px -6px 10px #ffffff;
+        border-radius: 10px;
+        padding: 0 8px;
+    }
+
+    /* Define a aparência das linhas do botão de menu, como cor, tamanho e raio da borda. */
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: #ff8243;
+        margin-bottom: 5px;
+        transition: 0.3s;
+        border-radius: 5px;
+        position: relative;
+    }
+    .menu-toggle span:last-child {
+        margin: 0;
+    }
+
+    /* Estiliza a  linha do botão de menu quando está 'toggled' (ativado). */
+    .toggled .menu-toggle span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 5px;
+    }
+    .toggled .menu-toggle span:nth-child(2) {
+        transform: rotate(-45deg);
+        top: -4px;
+    }
+    .toggled .menu-toggle span:nth-child(3) {
+        opacity: 0;
+        height: 0;
+    }
+    .toggled .header-menu {
+        transform: translateY(0);
+    }
+
+    /* Estiliza o menu principal para dispositivos móveis. */
+    .header-menu {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: max(9vh, 30px);
+        padding-left: max(6vh, 30px);
+        z-index: 99;
+        transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        overflow-y: auto;
+        transform: translateY(-100%);
+        background-image: url(assets/images/blog-pattern-bg.png);
+        background-position: center;
+        background-color: #f3f3f5;
+    }
+    .main-navigation .menu li {
+        display: block;
+        float: none;
+        margin: 0;
+        margin-bottom: max(20px, 4vh);
+    }
+    .main-navigation .menu li a {
+        display: inline-block;
+        font-size: max(16px, 2vh);
+    }
+    .main-navigation .menu .sub-menu {
+        max-width: 220px;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+    }
+    .main-navigation .menu .sub-menu li {
+        margin-bottom: 5px;
+    }
+    .main-navigation .menu li:last-child {
+        margin: 0;
+    }
+    .main-navigation .menu .sub-menu li a {
+        color: #ff8243;
+    }
+    /* Oculta o botão do carrinho de compras em dispositivos menores. */
+    .header-btn.header-cart {
+        display: none;
+    }
+    .header-btn {
+        margin: 0;
+        margin-right: 70px;
+    }
+    .site-header {
+        padding: 20px 0;
+        box-shadow: 0px 10px 55px #d4d4d4;
+    }
+
+    /* Define o fundo do cabeçalho, incluindo quando está fixo (sticky), para ser levemente transparente. */
+    .site-header.sticky_head, .site-header {
+        background: rgb(255 255 255 / 90%);
+    }
+    /* Garante que a altura do corpo do documento seja automática. */
+    body {
+        height: auto !important;
+    }
+}
+/* Para dispositivos muito pequenos (até 575px de largura), ajusta o preenchimento dos contêineres para 30px nas laterais. */
+@media (max-width: 575px) {
+    .container, .container-fluid {
+        padding: 0 30px;
+    }
+}
+
+ /* Em dispositivos com largura máxima de 400px, reduz ainda mais o preenchimento lateral dos contêineres para 15px. */
+@media (max-width: 400px) {
+    .container, .container-fluid {
+        padding: 0 15px;
+    }
+    .header-btn {
+        margin-right: 56px;
+    }
+    /* Posiciona o botão de menu (hambúrguer) mais próximo da borda direita. */
+    .menu-toggle {
+        right: 15px;
+    }
+    .site-header .container .row .col-lg-2 {
+        left: 15px;
+    }
+}
+
+/* ************************** */
+
+/* Regras para telas com largura mínima de 992px (geralmente tablets em modo paisagem e desktops) */
+@media screen and (min-width: 992px) {
+    #viewport {
+        overflow: hidden;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    #js-scroll-content {
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+/* Regras para telas com largura máxima de 991px (geralmente smartphones e tablets em modo retrato) */
+@media (max-width: 991px) {
+    #js-scroll-content {
+        transform: unset !important;
+    }
+}
+
+/* Estiliza a seção principal do banner:
+   - Aplica um preenchimento superior de 200px, inferior de 300px, e nenhum nas laterais.
+   - Define a altura mínima como 100vh (100% da altura da janela de visualização).
+   - Posiciona o banner de forma relativa, permitindo que elementos filhos sejam posicionados absolutamente em relação a ele. */
+.main-banner {
+    padding: 200px 0 300px;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Configura a cena de paralaxe:
+   - Posicionamento absoluto no topo e à esquerda do seu contêiner pai.
+   - Ocupa toda a largura e altura do contêiner pai. */
+.js-parallax-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Estiliza o wrapper da imagem do banner:
+   - Ocupa toda a largura e altura disponíveis.
+   - Aplica um preenchimento à esquerda de 30px. */
+.banner-img-wp {
+    width: 100%;
+    height: 100%;
+    padding-left: 30px;
+}
+/* Define os estilos para a imagem do banner:
+   - Ocupa toda a largura e altura disponíveis.
+   - A imagem de fundo cobre totalmente o espaço disponível, mantendo seu ponto central.
+   - Aplica uma animação chamada 'biani' que dura 4.5 segundos, é linear, se repete infinitamente e alterna entre os estilos definidos na animação.
+   - Aplica uma sombra sutil ao redor da imagem. */
+.banner-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: biani 4.5s linear infinite alternate;
+    box-shadow: 0 0px 20px rgba(36, 39, 37, 0.3);
+}
+
+/* Define uma animação chamada 'biani'. */
+@keyframes biani {
+/* No início e no final da animação, define os raios da borda. */
+    0% {
+        border-radius: 48% 52% 57% 43% / 34% 44% 56% 66%;
+    }
+/* Nos 25% da animação, modifica os raios da borda para outros valores. Essa animação cria um efeito visual onde o raio da borda do elemento muda ao longo do tempo, dando uma impressão de movimento ou pulsação. */
+    25% {
+        border-radius: 62% 38% 64% 36% / 34% 55% 45% 66%;
+    }
+    50% {
+        border-radius: 43% 57% 51% 49% / 33% 42% 58% 67%;
+    }
+    100% {
+        border-radius: 40% 60% 43% 57% / 52% 32% 68% 48%;
+    }
+}
+
+.banner-img-text .h5-title {
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.banner-img-text {
+    max-width: 400px;
+}
+/* Posiciona absolutamente e aplica um efeito de desfoque às imagens decorativas 'banner-shape-1' e 'banner-shape-2'. */
+.banner-shape-1 img {
+    position: absolute;
+    left: 85%;
+    top: 60px;
+    max-width: 150px;
+    pointer-events: none;
+    filter: blur(3px);
+}
+
+.banner-shape-2 {
+    top: auto !important;
+    bottom: 0;
+}
+
+.banner-shape-2 img {
+    position: absolute;
+    bottom: 0;
+    right: 82% !important;
+    max-width: 410px;
+    pointer-events: none;
+    filter: blur(3px);
+}
+/* Define a posição relativa e o índice de empilhamento para o contêiner '.sec-wp'. */
+.sec-wp {
+    position: relative;
+    z-index: 4;
+}
+
+/* Estiliza títulos com a classe .h1-title. Define o tamanho da fonte, altura da linha, transformação do texto, margem inferior e peso da fonte. */
+.h1-title {
+    font-size: 90px;
+    line-height: 108px;
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    font-weight: 900;
+}
+/* Estiliza a tag <span> dentro dos títulos .h1-title. Altera a cor, adiciona um fundo gradiente, define a transição e outros estilos de fundo. */
+.h1-title span {
+    color: #ff8243;
+    background-image: linear-gradient(0deg, rgb(13 13 37 /8%), rgb(13 13 37 /8%));
+    background-size: 100% 15px;
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    display: inline;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+/* Estiliza todos os cabeçalhos HTML (<h1> a <h6>). Define a cor, a família da fonte e o peso da fonte. */
+h1, h2, h3, h4, h5, h6 {
+    color: #0d0d25;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+/* Estiliza os parágrafos (<p>) com um tamanho de fonte e altura de linha específicos. */
+p {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+/* Estiliza os botões com a classe .sec-btn. Define o tamanho mínimo, cor de fundo, sombra, alinhamento, borda, estilo do texto e outros atributos para os botões. */
+.sec-btn {
+    min-width: 120px;
+    min-height: 58px;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: #0d0d25;
+    text-transform: capitalize;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: 6px 30px;
+}
+
+/* Estiliza os botões .sec-btn quando o mouse passa sobre eles. Altera a cor da borda, a sombra e a cor do texto. */
+.sec-btn:hover {
+    border-color: #0d0d25;
+    box-shadow: inset 9px 9px 12px #cccccc, inset -9px -9px 12px #ffffff;
+    color: #0d0d25;
+}
+
+/* ******************** */
+
+/* Estiliza a linha de marcas, utilizando Flexbox para distribuir os itens igualmente e definindo as margens para um alinhamento específico. */
+.brands-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+}
+
+/* Define os estilos dos contêineres individuais de cada marca, centralizando o conteúdo e aplicando preenchimento. */
+.brands-box {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adiciona um efeito visual ao passar o mouse sobre cada caixa de marca, reduzindo o brilho e a opacidade. */
+.brands-box:hover {
+    filter: brightness(0.3);
+    opacity: 0.9;
+}
+
+/* Estiliza os títulos das marcas, aplicando transformação de texto para maiúsculas, definindo o peso da fonte, espaçamento entre letras e opacidade. */
+.brand-title .h5-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+/* ******************** */
+/* Define o preenchimento superior e inferior e a posição para as seções gerais do site. */
+.section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+}
+/* Estiliza os subtítulos das seções, com transformação de texto, sombra, fundo, cor, tamanho da fonte e borda arredondada. */
+.sec-sub-title {
+    text-transform: uppercase;
+    display: inline-block;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #e4e4e4, -9px -9px 12px #ffffff;
+    padding: 3px 20px;
+    border-radius: 60px;
+    color: #ff8243;
+    font-size: 14px;
+}
+/* Estiliza títulos de segundo nível (h2), com tamanho da fonte, altura da linha, margem, transformação de texto e posição. */
+.h2-title {
+    font-size: 46px;
+    line-height: 56px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    position: relative;
+}
+/* Define que qualquer elemento <span> dentro dos títulos de diferentes níveis e subtítulos seja exibido como um bloco, o que pode afetar a forma como eles são dispostos na página. */
+.h2-title span, .h3-title span, .h4-title span, .h5-title span, .sub-title span {
+    display: block;
+}
+
+/* Configura o contêiner da imagem do vídeo. Define o tamanho, a posição do fundo, a borda, a sombra e usa Flexbox para centralizar o conteúdo (como o botão de play). */
+.about-video-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 55vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgb(36 39 37 / 30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estiliza o botão de play. Define o tamanho, o fundo, a sombra, a borda arredondada e usa Flexbox para alinhamento. Também inclui uma transição para o efeito hover. */
+.play-btn {
+    width: 90px;
+    height: 90px;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    vertical-align: middle;
+    position: relative;
+    z-index: 2;
+    padding-left: 4px;
+    padding-top: 4px;
+    font-size: 40px;
+}
+
+/* Adiciona um efeito visual ao passar o mouse sobre o botão de play, mudando a sombra. */
+.play-btn:hover {
+    box-shadow: inset 9px 9px 12px #cccccc, inset -9px -9px 12px #ffffff;
+}
+
+/* Estiliza o contêiner do botão de play, centralizando-o e alinhando os itens internos. */
+.play-btn-wp {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estiliza o texto ao lado do botão de play. Define a margem, tamanho da fonte, peso da fonte e cor. */
+.play-btn-wp span {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #bfbfbf;
+}
+
+/* Estilização da barra de rolagem para navegadores que usam o motor WebKit (como Chrome e Safari) */
+
+/* Define a largura da barra de rolagem. */
+::-webkit-scrollbar {
+    width: 5px;
+}
+/* Define a cor de fundo da trilha da barra de rolagem. */
+::-webkit-scrollbar-track {
+    background-color: #bfbfbf;
+}
+/* Estiliza a parte "scrollável" (thumb) da barra de rolagem. */
+::-webkit-scrollbar-thumb {
+    background: #ff8243;
+    border-radius: 10px;
+}
+/* Altera a cor do thumb ao passar o mouse sobre ele. */
+::-webkit-scrollbar-thumb:hover {
+    background: #f16620;
+}
+
+/* Estilização para elementos com imagens de fundo repetidas */
+/* Define que a imagem de fundo deve se repetir e ser contida dentro do elemento. */
+.repeat-img {
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+/* Estilos para o wrapper das abas do menu */
+/* Define a margem inferior do wrapper das abas. */
+.menu-tab-wp {
+    margin-bottom: 80px;
+}
+/* Define o estilo da lista dentro das abas, incluindo sombras, fundo e bordas. */
+.menu-tab ul {
+    padding: 10px;
+    display: inline-block;
+    border-radius: 60px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 55px #d4d4d4, -28px -28px 55px #ffffff;
+    position: relative;
+    z-index: 2;
+}
+/* Estiliza os itens individuais da lista (li) e o item ativo (filter-active) dentro do menu-tab:
+   - 'display: inline-flex' faz com que os itens sejam dispostos em linha e permite o uso de Flexbox para alinhamento.
+   - 'text-transform: capitalize' faz com que a primeira letra de cada palavra seja maiúscula.
+   - 'font-size', 'line-height', 'padding', e 'border-radius' ajustam o tamanho, o espaçamento e a forma dos itens.
+   - 'transition' adiciona uma transição suave para mudanças de estado (como hover).
+   - 'justify-content' e 'align-items' centralizam o conteúdo dos itens. */
+.menu-tab ul li, .menu-tab ul .filter-active {
+    display: inline-flex;
+    text-transform: capitalize;
+    font-size: 18px;
+    line-height: normal;
+    cursor: pointer;
+    padding: 10px 26px;
+    border-radius: 30px;
+    transition: 0.3s;
+    justify-content: center;
+    align-items: center;
+}
+/* Define o estilo do item ativo nas abas:
+   - 'position: absolute' posiciona o elemento de forma absoluta em relação ao seu contêiner mais próximo com 'position: relative'.
+   - 'left', 'top', e 'min-height' ajustam a posição e o tamanho do elemento ativo.
+   - 'z-index: -1' coloca o elemento atrás de outros elementos no mesmo contêiner. */
+.filter-active {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    min-height: 50px;
+    z-index: -1;
+}
+ /* Estiliza imagens dentro dos itens da lista. */
+.menu-tab ul li img {
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+}
+/* Define o estilo do item ativo quando selecionado. */
+.menu-tab ul .filter-active {
+    color: #ffffff;
+    background: linear-gradient(145deg, #e3a92b, #ffc933);
+}
+/* Garante que as caixas dos pratos sejam exibidas como blocos inline. */
+.menu-list-row .bydefault_show .dish-box-wp {
+    display: inline-block !important;
+}
+
+/* Oculta o contêiner '.dish-box-wp'. Isso pode ser usado para ocultar inicialmente o elemento e exibi-lo com base em alguma interação ou lógica de JavaScript. */
+.dish-box-wp {
+    display: none;
+}
+
+/* Estiliza o cartão do prato:
+   - Aplica bordas arredondadas, um fundo gradiente e sombra para dar um aspecto elevado.
+   - Usa 'display: flow-root', um método para conter floats internos.
+   - Define o preenchimento e a margem, e adiciona uma transição suave para efeitos de interação. */
+.dish-box {
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    display: flow-root;
+    padding: 0 30px 40px;
+    padding-top: 0;
+    margin: 130px 0 30px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+/* Aplica um efeito de zoom (escala) leve ao passar o mouse sobre o cartão do prato, dando um feedback visual de interação. */
+.dish-box:hover {
+    transform: scale(1.03);
+}
+
+/* Posiciona a imagem do prato, ajustando as margens para que ela se sobressaia visualmente do cartão. */
+.dist-img {
+    margin-top: -130px;
+    margin-bottom: 30px;
+}
+
+/* Estiliza a imagem do prato:
+   - Aplica uma sombra semelhante ao cartão, bordas arredondadas para uma forma circular e oculta qualquer conteúdo que ultrapasse o contorno. */
+.dist-img img {
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Estiliza a área de classificação do prato, definindo o tamanho da fonte e a margem inferior. */
+.dish-rating {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Aplica preenchimento nas laterais do título do prato para alinhamento com o restante do conteúdo do cartão. */
+.dish-title {
+    padding: 0 30px;
+}
+
+/* Estiliza o título do prato, que está dentro de um contêiner .dish-title. Configurando a transformação de texto, margem, família da fonte, cor, transição, altura mínima e define um limite para o número de linhas exibidas. */
+
+.dish-title .h3-title {
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: #0d0d25;
+    transition: 0.3s;
+    min-height: 76px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 900;
+}
+
+/* Define a cor do texto para parágrafos dentro de .dish-title. */
+.dish-title p {
+    color: #bfbfbf;
+}
+
+/* Estiliza as listas dentro de .dish-info e .dist-bottom-row usando Flexbox para distribuição de espaço. */
+.dish-info ul, .dist-bottom-row ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Define o estilo dos itens da lista em .dish-info para serem exibidos em linha e com espaço igual. */
+.dish-info ul li {
+    display: inline-block;
+    flex: 1;
+}
+
+/* Estiliza o último item da lista em .dish-info, com alinhamento à direita e uma borda à esquerda. */
+.dish-info ul li:last-child {
+    text-align: right;
+    border-left: 2px solid rgb(204 204 204 / 30%);
+}
+
+/* Alinha à direita o último item da lista em .dist-bottom-row. */
+.dist-bottom-row ul li:last-child {
+    text-align: right;
+}
+
+/* Define o tamanho da fonte, transformação de texto, margem e peso da fonte para parágrafos dentro dos itens da lista em .dish-info. */
+.dish-info ul li p {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 2px;
+    font-weight: 300;
+}
+
+/* Aumenta o peso da fonte para elementos em negrito dentro dos itens da lista em .dish-info. */
+.dish-info ul li b {
+    font-weight: 600;
+}
+
+/* Aplica preenchimento nas laterais de .dish-info e .dist-bottom-row. */
+.dish-info, .dist-bottom-row {
+    padding: 0 30px;
+}
+
+/* Adiciona uma borda inferior, margem e preenchimento inferior a .dish-info. */
+.dish-info {
+    border-bottom: 2px solid rgb(204 204 204 / 30%);
+    margin: 30px 0 30px;
+    padding-bottom: 30px;
+}
+
+/* Estiliza os itens da lista na parte inferior de cada caixa de prato para exibição em flex, alinhando os itens ao centro, proporcionando um layout uniforme e centrado. */
+.dist-bottom-row ul li {
+    display: flex;
+    align-items: center;
+}
+
+/* Define o tamanho da fonte para texto em negrito dentro dos itens da lista na parte inferior da caixa de prato. */
+.dist-bottom-row ul li b {
+    font-size: 30px;
+}
+
+/* Estiliza o botão de adição de prato:
+   - Define tamanho, borda, cor, transição, fundo e sombra. 
+   - Utiliza um gradiente para o fundo e sombras internas para um efeito visual 3D. */
+.dish-add-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: 0.3s;
+    background: linear-gradient(145deg, #ffc954, #ffbc00);
+    box-shadow: inset 4px 4px 8px #d6a029, inset -4px -4px 8px #ffd837;
+}
+
+/* Define a cor e o tamanho da fonte para o ícone dentro do botão de adição. */
+.dish-add-btn i {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+/* Muda o fundo do botão de adição ao passar o mouse sobre ele, dando um feedback visual ao usuário. */
+.dish-add-btn:hover {
+    background: linear-gradient(145deg, #e3a92b, #ffc933);
+}
+
+/* ************ */
+
+/* Estiliza títulos grandes (xxl-title):
+   - Aplica transformação de texto, tamanho da fonte, altura da linha e margem. */
+.xxl-title {
+    text-transform: capitalize;
+    font-size: 52px;
+    line-height: 72px;
+    margin-bottom: 30px;
+}
+
+/* ****************** */
+
+/* Oculta qualquer conteúdo que ultrapasse os limites do contêiner '.book-table', geralmente usado para efeitos visuais. */
+.book-table {
+    overflow: hidden;
+}
+
+/* Posiciona uma imagem absolutamente dentro do contêiner '.book-table-shape', especificando sua localização e tamanho. */
+.book-table-shape img {
+    position: absolute;
+    top: -10px;
+    right: 73%;
+    width: 540px;
+}
+
+/* Estiliza uma segunda forma (shape) na seção de reserva de mesa, invertendo a imagem horizontalmente para criar um efeito espelhado. */
+.book-table-shape.book-table-shape2 img {
+    left: 74%;
+    transform: scale(-1, 1);
+}
+
+/* Define as margens ao redor do bloco de informações da reserva de mesa. */
+.book-table-info {
+    margin: 30px 0 20px;
+}
+
+/* Estiliza os títulos das tabelas, capitalizando as primeiras letras das palavras, definindo o espaçamento entre letras e a margem inferior. */
+.table-title {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Define o tamanho da fonte, a altura da linha e a margem para os parágrafos dentro dos títulos das tabelas. */
+.table-title p {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+}
+
+/* Cria um contêiner 'call-now' com bordas pontilhadas nas laterais e um preenchimento vertical. */
+.call-now {
+    border-left: 3px dotted rgb(13 13 37 /50%);
+    border-right: 3px dotted rgb(13 13 37 /50%);
+    padding: 15px 0;
+}
+
+/* Estiliza o ícone dentro do contêiner 'call-now'. Configura o ícone de chamada como um círculo com sombras, tamanho e cor específicos.*/
+.call-now i {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 26px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    color: #ff8243;
+}
+
+/* Estiliza os links dentro do 'call-now', com tamanho da fonte, peso da fonte, cor e transição. */
+.call-now a {
+    font-size: 32px;
+    font-weight: 500;
+    color: #0d0d25;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+/* Define a cor do texto ao passar o mouse sobre os links em 'call-now' e '.contact-info', criando um efeito de interação visual. */
+.call-now a:hover, .contact-info a:hover {
+    color: #fcbc30;
+}
+
+/* Aumenta o preenchimento superior da seção da galeria para separá-la de elementos acima. */
+#gallery {
+    padding-top: 120px;
+}
+
+/* Define o tamanho e a borda arredondada para as imagens na seção de reserva de mesa. */
+.book-table-img {
+    height: 70vh;
+    min-height: 500px;
+    border-radius: 30px;
+}
+
+/* Configura as imagens de fundo para se adaptarem ao espaço disponível, mantendo o centro da imagem visível. */
+.back-img {
+    background-position: center;
+    background-size: cover;
+}
+
+/* Remove o texto padrão (como 'next', 'prev') dos botões de navegação do Swiper. */
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: none;
+}
+
+/* Estiliza o contêiner que envolve os botões de navegação do Swiper. */
+.swiper-button-wp {
+    position: relative;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+}
+
+/* Estiliza os botões de navegação 'next' e 'prev' do Swiper. Define o posicionamento, tamanho, cor de fundo, sombra e transição para os botões de navegação do Swiper.  */
+.swiper-button-next, .swiper-button-prev {
+    position: unset;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    font-size: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+    color: #0d0d25;
+    background: #ffffff;
+    box-shadow: -20px 20px 60px #d4d4d4, 20px -20px 60px #ffffff;
+    padding-top: 1px;
+    padding-right: 2px;
+    transition: 0.3s;
+}
+
+/* Define a sombra específica para o botão 'next' e ajusta o preenchimento. */
+.swiper-button-next {
+    box-shadow: 20px 20px 60px #d4d4d4, -20px -20px 60px #ffffff;
+    padding-left: 3px;
+}
+
+/* Estilos para o estado 'hover' dos botões 'prev' e 'next'. Modifica a sombra e a cor dos botões ao passar o mouse sobre eles, oferecendo feedback visual. */
+.swiper-button-prev:hover {
+    box-shadow: inset 5px 5px 20px #d4d4d4, inset -5px -5px 20px #ffffff;
+    color: #fcbc30;
+}
+
+.swiper-button-next:hover {
+    box-shadow: inset -5px 5px 20px #d4d4d4, inset 5px -5px 20px #ffffff;
+    color: #fcbc30;
+}
+
+/* Define o estilo da paginação do Swiper, incluindo tamanho, fundo, sombra, posicionamento e cor. */
+.swiper-pagination {
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 60px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 25px 28px 55px #d4d4d4, -28px -28px 55px #ffffff;
+    max-width: fit-content;
+    left: 50% !important;
+    transform: translate(-50%, 0);
+    bottom: 0 !important;
+    color: #000;
+}
+
+/* Define o tamanho, a margem e a transição dos bullets da paginação. */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0px 10px !important;
+    border-radius: 10px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+/* Altera a cor e o tamanho do bullet ativo na paginação do Swiper. */
+.swiper-pagination-bullet-active {
+    background: #fcbc30;
+    width: 30px;
+}
+
+/* *************** */
+/* Define a posição relativa para o contêiner do slider da equipe, permitindo que elementos filhos sejam posicionados absolutamente em relação a ele. */
+.team-slider {
+    position: relative;
+}
+
+/* Estilos para cada caixa individual da equipe. Aplica preenchimento, bordas arredondadas, fundo gradiente, sombra e uma transição suave para as caixas da equipe. */
+.team-box {
+    padding: 20px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #e6e6e6, -28px -28px 45px #ffffff;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+/* Cria um efeito de zoom leve ao passar o mouse sobre as caixas da equipe. */
+.team-box:hover {
+    transform: scale(1.03);
+}
+
+/* Estilos para a imagem da equipe. Configura o tamanho, bordas arredondadas, margem e sombra. */
+.team-img {
+    width: 100%;
+    height: 480px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 9px 9px 18px rgb(194 194 194 /0.5), -9px -9px 18px rgb(255 255 255 / 0.5);
+}
+
+/* Estilos para o título dentro de cada caixa da equipe. Aplica transformação de texto, cor e peso da fonte */
+.team-box .h3-title {
+    text-transform: capitalize;
+    color: #0d0d25;
+    font-weight: 600;
+}
+
+/* Define a margem ao redor dos ícones de redes sociais. */
+.social-icon {
+    margin: 15px 0px 10px;
+}
+ /* Estilos para cada item da lista de ícones de redes sociais. */
+.social-icon ul li {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+/* Remove a margem lateral do primeiro e do último item da lista. */
+.social-icon ul li:last-child {
+    margin-right: 0;
+}
+.social-icon ul li:first-child {
+    margin-left: 0;
+}
+
+/* Estilos para os links dos ícones de redes sociais. Configura o tamanho, estilo de fundo, sombra, cor e tamanho da fonte*/
+.social-icon ul li a {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 4px 4px 8px #d0d0d0, -4px -4px 8px #ffffff;
+    color: #0d0d25;
+    font-size: 19px;
+}
+
+/* Muda o fundo e a cor dos ícones ao passar o mouse sobre eles, oferecendo um feedback visual. */
+.social-icon ul li a:hover {
+    background: #ff8243;
+}
+.social-icon ul li a:hover i {
+    color: #ffffff !important;
+}
+
+/* *************** */
+
+/* Define a posição relativa para o contêiner da imagem do depoimento, permitindo posicionamento absoluto dos elementos filhos. */
+.testimonials-img {
+    position: relative;
+}
+
+/* Posiciona a imagem de depoimento de forma absoluta e ajusta seu tamanho. */
+.testimonials-img img {
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    width: calc(100% + 5vw);
+    max-width: initial;
+}
+
+/* Estilos para a caixa de depoimento. Configura o estilo da caixa de depoimento, incluindo bordas, fundo, sombra e transição.*/
+.testimonials-box {
+    display: flow-root;
+    position: relative;
+    padding: 30px;
+    padding-top: 0;
+    border-radius: 30px;
+    margin: 50px 0 30px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 45px #e6e6e6, -28px -28px 45px #ffffff;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+}
+
+/* Cria um efeito de ampliação ao passar o mouse sobre a caixa de depoimento. */
+.testimonials-box:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* Organiza o topo da caixa de depoimento com Flexbox, alinhando e espaçando os elementos. */
+.testimonial-box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Estiliza a imagem, aplicando borda arredondada e sombra. */
+.testimonials-box-img {
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+    margin-top: -50px;
+    box-shadow: 10px 10px 60px #d4d4d4;
+}
+
+/* Aplica transformação de texto e margem ao título. */
+.testimonials-box-text .h3-title {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/* Limita o texto a três linhas, ocultando o excedente. */
+.testimonials-box-text p {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Define o estilo do wrapper da classificação por estrelas. */
+.star-rating-wp {
+    display: block;
+}
+
+/* Configura o tamanho, posição e exibição da classificação por estrelas. */
+.star-rating {
+    font-size: 22px;
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Conteúdo e estilos para as estrelas antes e depois do preenchimento. */
+.star-rating::before {
+    content: "\f005\f005\f005\f005\f005";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: #c8c8c8;
+    filter: drop-shadow(0 0.6rem 0.3rem rgba(0, 0, 0, 0.05));
+    letter-spacing: 4px;
+}
+.star-rating__fill {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    animation: fill-star 2s ease-in-out;
+}
+.star-rating__fill::after {
+    content: "\f005\f005\f005\f005\f005";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: #ff8243;
+    letter-spacing: 4px;
+}
+
+/* Define uma animação para o preenchimento das estrelas. */
+@keyframes fill-star {
+    0% {
+        width: 0;
+    }
+}
+
+/* *********** */
+
+/* Divide o conteúdo da linha de FAQ em três colunas e ajusta as margens. */
+.faq-row {
+    column-count: 3;
+    margin: 0 -5px;
+}
+
+/* Estiliza cada caixa de FAQ individualmente. Aplica borda, borda arredondada, gradiente de fundo, sombra e define a margem. 'break-inside: avoid' evita que a caixa seja dividida entre colunas. */
+.faq-box {
+    border: 1px solid #bfbfbf;
+    border-radius: 30px;
+    background-image: linear-gradient(145deg, #e4e4e4, #ffffff);
+    break-inside: avoid;
+    margin: 0 5px 30px;
+    box-shadow: 10px 10px 30px rgb(207 207 208 / 20%), -10px -10px 30px rgb(255 255 255 / 90%);
+}
+
+/* Adiciona preenchimento, borda inferior, transformação de texto, peso da fonte. */
+.faq-box .h4-title {
+    padding: 16px 30px;
+    border-bottom: 1px solid #bfbfbf;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+/* Estiliza o parágrafo dentro da caixa de FAQ. */
+.faq-box p {
+    padding: 8px 30px 20px;
+    margin: 0;
+}
+
+/* *************** */
+
+/* Estiliza os títulos dentro da seção de texto do blog. Aplica transformação de texto, margem, oculta o texto excedente, define peso da fonte, família da fonte, cor, e transição. */
+.blog-text .h4-title {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 900;
+    font-family: "playfair Display";
+    color: #0d0d25;
+    transition: 0.3s;
+}
+
+/* Muda a cor do título ao passar o mouse sobre ele. */
+.blog-text .h4-title:hover {
+    color: #ff8243;
+}
+
+/* Define o preenchimento, fundo, sombra, exibição, borda arredondada, tamanho da fonte e margem da data do blog. */
+.blog-date {
+    padding: 5px 15px;
+    background: #f8f9fa;
+    box-shadow: inset 5px 5px 10px #e2e2e2, inset -5px -5px 10px #e8e8e8;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Define o tamanho, borda arredondada e margem para a imagem do blog. */
+.blog-img {
+    width: 100%;
+    height: 280px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+/* Aplica preenchimento, borda arredondada, gradiente de fundo, sombra e transição. */
+.blog-box {
+    padding: 30px 25px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ececec, #fdfdfd);
+    box-shadow: 30px 30px 50px #dcdcdc, -30px -30px 50px #ffffff;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    margin-bottom: 30px;
+}
+
+/* Cria um efeito de ampliação ao passar o mouse sobre a caixa do blog. */
+.blog-box:hover {
+    transform: scale(1.03);
+}
+
+/* ************************ */
+
+/* Configura a caixa da newsletter com preenchimento, bordas arredondadas e uma posição relativa, escondendo qualquer conteúdo que ultrapasse seus limites. */
+.newsletter-box {
+    padding: 60px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Define a margem superior e posição relativa para o formulário da newsletter. */
+.newsletter-form {
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Posiciona o botão do formulário de forma absoluta, alinhando-o verticalmente. */
+.newsletter-form button {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+/* Estiliza o campo de entrada do formulário com altura, bordas arredondadas, preenchimento e um fundo gradiente. */
+.newsletter-form .form-input {
+    height: 68px;
+    border-radius: 60px;
+    padding: 0 150px 0 40px;
+    background: linear-gradient(-145deg, #e4e4e4, #f9f9f9);
+}
+
+/* Define o preenchimento e a cor do texto na seção de texto da newsletter. */
+.newsletter-box-text {
+    padding: 0 60px;
+    color: #ffffff;
+}
+.newsletter-box-text .h2-title {
+    color: #ffffff;
+}
+
+/* Posiciona os overlays de forma absoluta e cobre toda a área da caixa da newsletter. */
+/* Configura o fundo e a opacidade do overlay claro. */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #f8f9fa;
+    opacity: 0.96;
+}
+/* Configura o fundo e a opacidade do overlay escuro. */
+.dark-overlay {
+    background: #0d0d25;
+    opacity: 0.5;
+}
+/* Estiliza o botão principal com fundo gradiente, cor, sem borda e com sombra. */
+.sec-btn.primary-btn {
+    background: linear-gradient(145deg, #e26a2c, #ff8243);
+    color: #ffff;
+    border: none;
+    box-shadow: 4px 4px 8px #9e9e9e, -4px -4px 8px #ffffff;
+}
+/* Muda o fundo do botão principal ao passar o mouse, criando um feedback visual. */
+.sec-btn.primary-btn:hover {
+    background: linear-gradient(145deg, #0c0c21, #0e0e28);
+}
+
+/* ***************** footer ****************** */
+
+/* Aplica uma borda superior e define a posição relativa para as seções superior e inferior do rodapé. */
+.top-footer, .bottom-footer {
+    border-top: 1px solid rgb(204 204 204 / 40%);
+    position: relative;
+}
+
+/* Define a margem inferior para o logotipo no rodapé. */
+.footer-logo {
+    margin-bottom: 30px;
+}
+/* Define a margem superior para os ícones de mídia social na seção de informações do rodapé. */
+.footer-info .social-icon {
+    margin-top: 20px;
+}
+
+/* Configura o layout flexível para os contêineres dentro do rodapé e ajusta o espaçamento. */
+.footer-flex-box {
+    display: flex;
+    margin: 0 -10px;
+}
+.footer-flex-box>div {
+    flex: 1;
+    padding: 0 10px;
+}
+
+/* Estiliza os títulos nas caixas flexíveis do rodapé. */
+.footer-flex-box .h3-title {
+    text-transform: capitalize;
+    margin-bottom: 23px;
+}
+
+/* Estiliza os links no menu do rodapé, incluindo cores e efeitos de hover. */
+.footer-menu ul li a {
+    color: #0d0d25;
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+.footer-menu ul li a:hover, .footer-menu ul li .footer-active-menu {
+    color: #ff8243;
+}
+
+/* Define a margem inferior para itens de lista no menu e na tabela de informações do rodapé. */
+.footer-menu ul li {
+    margin-bottom: 8px;
+}
+.footer-table-info ul li {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.uil-clocl {
+    font-size: 17px;
+}
+
+.copyright-text {
+    padding: 20px 0;
+}
+
+.copyright-text p {
+    margin: 0;
+}
+
+.name {
+    color: #ff8243;
+    font-weight: bold;
+}
+
+/* Estiliza o botão de rolagem para o topo. */
+.scrolltop {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #f3f3f5;
+    box-shadow: 9px 9px 12px #b2b2b3, -9px -9px 12px #ffffff;
+    color: #ff8243;
+    font-size: 26px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    border: none;
+}
+
+.scrolltop:hover {
+    box-shadow: inset 9px 9px 12px #cccccc, inset -9px -9px 12px #ffffff;
+    color: #0d0d25;
+}
+
+/* **************** Responsividade ***************** */
+
+@media (min-width: 2100px) {
+    .container {
+        max-width: 1400px;
+    }
+    p, body, button, input {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .h1-title {
+        font-size: 80px;
+        line-height: 90px;
+    }
+    .h3-title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .h4-title {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .h2-title {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    .team-img {
+        height: 400px;
+    }
+    .blog-box {
+        padding: 30px 20px;
+    }
+    .dist-bottom-row ul li b {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .main-banner {
+        padding: 200px 0;
+    }
+    .banner-img-wp {
+        height: 360px;
+    }
+    .dish-box {
+        padding: 0 0 40px;
+    }
+    .dist-img img {
+        width: 220px;
+    }
+    .dist-img {
+        margin-top: -110px;
+    }
+    .dist-bottom-row ul li b {
+        font-size: 28px;
+    }
+    .sec-text {
+        padding: 0;
+    }
+    .team-img {
+        height: 340px;
+    }
+    .testimonials-box {
+        padding: 30px 20px;
+        margin: 26px 0 30px;
+    }
+    .testimonials-box-img {
+        min-width: 80px;
+        min-height: 80px;
+        margin-top: -80px;
+    }
+    .faq-box .h4-title {
+        padding: 16px 20px;
+    }
+    .faq-box p {
+        padding: 8px 20px 20px;
+    }
+    .blog-img {
+        height: 240px;
+    }
+    .newsletter-box-text {
+        padding: 0;
+    }
+    .footer-flex-box>div {
+        padding: 0 10px;
+    }
+    .star-rating {
+        font-size: 19px;
+    }
+    .testimonial-box-top {
+        margin-bottom: 10px;
+    }
+    .call-now a {
+        font-size: 28px;
+    }
+    .menu-box {
+        padding: 50px 20px 30px 20px;
+    }
+    .menu-img {
+        width: 140px;
+    }
+}
+
+@media (max-width: 991px) {
+    .js-parallax-scene {
+        display: none;
+    }
+    .main-banner {
+        padding: 140px 0 60px;
+    }
+    .h1-title {
+        font-size: 60px;
+        line-height: 80px;
+    }
+    .banner-img-wp {
+        padding: 0;
+        height: 75vw;
+        padding-top: 50px;
+    }
+    .brands-box {
+        padding: 0 30px;
+    }
+    .brands-row {
+        margin: 0 -30px;
+    }
+    .menu-tab ul {
+        white-space: nowrap;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    .menu-tab::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.2;
+        border-radius: 0 60px 60px 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+    .sec-text {
+        margin-top: 40px;
+    }
+    .call-now {
+        border: none;
+        margin: 40px 0;
+        border-top: 3px dotted rgb(13 13 17 / 50%);
+        border-bottom: 3px dotted rgb(13 13 17 / 50%);
+        padding: 30px 0;
+    }
+    .book-table-info {
+        max-width: 300px;
+        margin: 30px auto 0;
+    }
+    .swiper-button-wp .swiper-button {
+        display: none !important;
+    }
+    .testimonials-img img {
+        position: unset;
+        width: 100%;
+    }
+    .testimonials-img {
+        margin-bottom: 60px;
+    }
+    .faq-row {
+        column-count: 1;
+        margin: 0;
+    }
+    .newsletter-box {
+        padding: 40px;
+    }
+    .footer-info {
+        margin-bottom: 50px;
+    }
+    .footer-flex-box {
+        display: block;
+        margin: 0;
+    }
+    .footer-flex-box>div {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    .faq-box {
+        margin: 0;
+        margin-bottom: 30px;
+    }
+    .footer-flex-box>div:last-child {
+        margin: 0;
+    }
+    .scrolltop {
+        bottom: 130px;
+    }
+    .footer-menu ul {
+        max-width: 300px;
+    }
+    #gallery {
+        padding-top: 90px;
+    }
+    .swiper-pagination-bullet {
+        margin: 0 5px !important;
+        width: 8px;
+        height: 8px;
+    }
+    .swiper-pagination {
+        padding: 6px 20px;
+    }
+    .swiper-button-wp {
+        margin-top: 40px;
+    }
+    .swiper-pagination-bullet-active {
+        width: 16px;
+    }
+    .dish-title .h3-title {
+        display: block;
+        min-height: auto;
+        margin-bottom: 12px;
+    }
+    .menu-img {
+        width: 180px;
+        margin-inline: auto;
+        margin-bottom: 20px;
+    }
+    #js-scroll-content {
+        transform: unset !important;
+    }
+    body {
+        height: auto !important;
+    }
+    .menu-tab ul::-webkit-scrollbar {
+        height: 0;
+    }
+    .menu-tab {
+        position: relative;
+        display: flex;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-img-wp {
+        height: 75vw;
+        min-height: 60vw;
+        width: auto;
+    }
+    .dist-img img {
+        width: 180px;
+    }
+    .dist-img {
+        margin-top: -80px;
+    }
+    .menu-tab-wp {
+        margin-bottom: 60px;
+    }
+    .dish-box {
+        margin: 80px 0 30px;
+    }
+    .book-table-img {
+        min-height: 340px;
+        height: 60vh;
+    }
+    .team-img {
+        height: 430px;
+    }
+    .dish-info ul li p {
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0;
+    }
+    .dish-info ul li b {
+        font-size: 14px;
+    }
+    .brands-box {
+        padding: 0 25px;
+    }
+    .brands-row {
+        margin: 0 -25px;
+    }
+    .menu-tab ul li {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container, .container-fluid {
+        padding: 0 30px;
+    }
+    .h1-title {
+        font-size: 40px;
+        line-height: 60px;
+        margin-bottom: 20px;
+    }
+    .h1-title span {
+        background-size: 100% 8px;
+    }
+    .banner-img-wp {
+        height: 90vw;
+    }
+    .about-video-img {
+        height: 30vw;
+        min-height: 280px;
+        border-radius: 30px;
+    }
+    .brands-box {
+        padding: 0 15px;
+        flex: 0 0 33%;
+        margin-bottom: 30px;
+    }
+    .brands-row {
+        margin: 0 -15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .dish-box {
+        max-width: 340px;
+        margin: 80px auto 30px;
+        padding: 0 0 30px;
+    }
+    .blog-sec.section {
+        padding-bottom: 0;
+    }
+    .brands-box img {
+        max-width: 80%;
+    }
+    .brand-title {
+        text-align: center;
+    }
+    .play-btn {
+        width: 70px;
+        height: 70px;
+    }
+    .play-btn-wp span {
+        font-size: 18px;
+    }
+    .newsletter-box {
+        padding: 15px;
+    }
+    .newsletter-form .form-input {
+        padding: 0 130px 0 12px;
+    }
+    .menu-box {
+        display: block;
+        text-align: center;
+    }
+    .menu-box-right .dish-title .h3-title {
+        padding: 0;
+    }
+    .gallery-img {
+        height: 50vw;
+    }
+    .contact-info a {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-img {
+        height: 330px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container, .container-fluid {
+        padding: 0 15px;
+    }
+    .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .newsletter-form button {
+        position: unset;
+        transform: translate(0);
+        box-shadow: none !important;
+        margin-top: 20px;
+    }
+    .newsletter-form .form-input {
+        padding: 0 30px;
+    }
+    .team-box .h3-title {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .team-img {
+        height: 280px;
+    }
+    .blog-box {
+        padding: 20px;
+    }
+}
+
+
+/* Importação da fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* Variáveis de cores */
+:root {
+    --primary-color: #b99e8b;
+    --secondary-color: #6c757d;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#cartModal .modal-dialog {
+    position: fixed; /* Mantém fixo para que o modal não role com a página */
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh; /* Mantém a altura total da viewport */
+    background-color: var(--item-bg);
+    transition: right 0.5s ease-in-out;
+    z-index: 1050;
+    display: flex; /* para usar flexbox */
+    flex-direction: column; /*  para estruturar o modal como uma coluna */
+}
+
+#cartModal .modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: none;
+}
+
+/* Garante que o cabeçalho e o rodapé estejam fixos e o corpo seja o único elemento a rolar */
+#cartModal .modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Assegura que fique acima do conteúdo que rola */
+}
+
+#cartModal .modal-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2; /* Assegura que fique acima do conteúdo que rola */
+}
+
+#cartModal .modal-body {
+    overflow-y: auto; /* Permite a rolagem dentro do corpo do modal */
+    flex-grow: 1; /* Permite que o corpo cresça conforme o necessário */
+}
+
+
+//* Variáveis de cores */
+:root {
+    --primary-color: #b99e8b;
+    --secondary-color: #6c757d;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#cartModal .modal-dialog {
+    position: fixed; /* Mantém fixo para que o modal não role com a página */
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh; /* Mantém a altura total da viewport */
+    background-color: var(--item-bg);
+    transition: right 0.5s ease-in-out;
+    z-index: 1050;
+    display: flex; /* Adicionado para usar flexbox */
+    flex-direction: column; /* Adicionado para estruturar o modal como uma coluna */
+}
+
+#cartModal .modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: none;
+}
+
+/* Garante que o cabeçalho e o rodapé estejam fixos e o corpo seja o único elemento a rolar */
+#cartModal .modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Assegura que fique acima do conteúdo que rola */
+}
+
+#cartModal .modal-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2; /* Assegura que fique acima do conteúdo que rola */
+}
+
+#cartModal .modal-body {
+    overflow-y: auto; /* Permite a rolagem dentro do corpo do modal */
+    flex-grow: 1; /* Permite que o corpo cresça conforme o necessário */
+}
+
+
+/* Botões do Modal */
+#cartModal .btn-primary {
+    background-color: #999;
+    border-color: #999;
+}
+
+#cartModal .btn-secondary {
+    background-color: #999;
+    border-color: #ffffff;
+}
+
+/* Personalização dos itens do carrinho */
+.modal-body div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.modal-body button {
+    padding: 2.5px 5px;
+    margin-right: 5px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-body button:hover {
+    background-color: #000000;
+}
+
+.modal-body .remove-btn {
+    padding: 2.5px 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal-body .remove-btn:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Estilização do total do carrinho */
+.total {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    margin-top: 0%;
+}
+
+
+#cartModal .btn-secondary {
+    background-color: #999;
+    border-color: #999;
+}
+
+/* Personalização dos itens do carrinho */
+.modal-body div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.modal-body button {
+    padding: 2.5px 5px;
+    margin-right: 5px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-body button:hover {
+    background-color: #000000;
+}
+
+.modal-body .remove-btn {
+    padding: 2.5px 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal-body .remove-btn:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Estilização do total do carrinho */
+.total {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    margin-top: 0%;
+}

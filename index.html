@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento, informando ao navegador que esta é uma página HTML5 -->
+
+<html lang="pt-br">
+<!-- O elemento raiz <html> com o atributo 'lang' definido como 'pt-br', indicando que o conteúdo da página está em português do Brasil -->
+
+<head>
+    <!-- Início da seção head, que contém metadados e links para folhas de estilo e scripts -->
+
+    <meta charset="UTF-8">
+    <!-- Define o conjunto de caracteres usado no documento como UTF-8, que suporta a maioria dos caracteres e símbolos -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Instrui o Internet Explorer a usar o modo de renderização mais recente disponível -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Garante que a página será exibida corretamente em todos os dispositivos, configurando a largura da área de visualização para corresponder à largura do dispositivo e a escala inicial para 1 -->
+
+    <title>Delícias Italianas - Cozinha Autêntica Italiana</title>
+    <!-- Define o título da página, que aparece na aba do navegador -->
+
+    <!-- Inclusão de ícones e estilos -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- Link para a biblioteca de ícones 'Unicons' -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Link para a folha de estilo do Bootstrap, um framework CSS para design responsivo e compatibilidade entre navegadores -->
+
+    <!-- Swiper slider -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- Link para a folha de estilo do Swiper, um slider de toque moderno -->
+
+    <!-- Fancy box -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <!-- Link para a folha de estilo do Fancy Box, uma biblioteca para criar lightboxes (caixas de luz) -->
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link para a folha de estilo personalizada do site -->
+
+    <!-- Bootstrap (CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link para a versão CDN do Bootstrap, que pode ser redundante já que uma versão local já foi incluída -->
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <!-- Script do Bootstrap, fornecendo componentes interativos como modais e carrosséis -->
+</head>
+
+<body class="body-fixed">
+    <!-- Início do corpo do documento, com uma classe para configurações de layout específicas -->
+
+    <!-- Início do cabeçalho (header) -->
+<header class="site-header">
+        <div class="container">
+    <!-- Estrutura  do Bootstrap para organização do conteúdo em linha -->
+            <div class="row">
+    <!-- Coluna para o logotipo -->
+                <div class="col-lg-2">     
+                    <div class="header-logo">
+                        <a href="index.html">
+                            <img src="logo.png" width="160" height="36" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+    <!-- Coluna para a navegação principal -->
+                <div class="col-lg-10">
+                    <div class="main-navigation">
+    <!-- Botão de menu para telas menores (hamburguer menu) -->
+                        <button class="menu-toggle"><span></span><span></span></button>
+    <!-- Navegação principal -->
+                        <nav class="header-menu">
+    <!-- Cada item da lista é um link para uma seção da página -->
+                            <ul class="menu food-nav-menu">
+                                <li><a href="#home">Início</a></li>
+                                <li><a href="#about">Sobre</a></li>
+                                <li><a href="#menu">Cardápio</a></li>
+                                <li><a href="#gallery">Galeria</a></li>
+                                <li><a href="#blog">Blog</a></li>
+                                <li><a href="#contact">Contato</a></li>
+                            </ul>
+                        </nav>
+    <!-- Área à direita do cabeçalho para funcionalidades adicionais -->
+                        <div class="header-right">
+    <!-- Formulário de busca -->
+                            <form action="#" class="header-search-form for-des">
+                                <input type="search" class="form-input" placeholder="Procure aqui...">
+                                <button type="submit">
+                                    <i class="uil uil-search"></i>
+                                </button>
+    <!-- Links para carrinho, perfil do usuário e logout -->
+                            </form>
+                            <a href="javascript:void(0)" class="header-btn header-cart" title="Carrinho">
+                                <i class="uil uil-shopping-bag"></i>
+                                <span class="cart-number">0</span>
+                            </a>
+                            <a href="javascript:void(0)" class="header-btn" onclick=checkLogin() title="Meu perfil">
+                                <i class="uil uil-user-md"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" class="header-btn" onclick=logout() title="Logout">
+                                <i class="uil uil-signout"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Fim do cabeçalho -->
+
+    <!-- Seção principal do banner -->
+    <div id="viewport">
+        <div id="js-scroll-content">
+            <section class="main-banner" id="home">
+    <!-- Paralaxe em relacao ao mouse -->
+                <div class="js-parallax-scene">
+                    <div class="banner-shape-1 w-200" data-depth="0.30">
+                        <img src="assets/images/berry.png" alt="">
+                    </div>
+                    <div class="banner-shape-2 w-100" data-depth="0.25">
+                        <img src="assets/images/leaf.png" alt="">
+                    </div>
+                </div>
+    <!-- Conteúdo do banner -->
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+    <!-- Texto do banner -->
+                            <div class="col-lg-6">
+                                <div class="banner-text">
+                                    <h1 class="h1-title">
+                                        Descubra Sabores 
+                                        <span>Delizioso</span>
+                                        Sua Casa Italiana
+                                    </h1>
+                                    <p>Desfrute de uma viagem autêntica pelo sabor tradicional da Itália. 
+                                        Pratos feitos com paixão e ingredientes frescos diretamente da Toscana.</p>
+                                    <div class="banner-btn mt-4">
+                                        <a href="#menu" class="sec-btn">Confira nosso Cardápio</a>
+                                    </div>
+                                </div>
+                            </div>
+     <!-- Imagem do banner -->
+                            <div class="col-lg-6">
+                                <div class="banner-img-wp">
+                                    <div class="banner-img" style="background-image: url(assets/images/main-b.png);">
+                                    </div>
+                                </div>
+                                <div class="banner-img-text mt-4 m-auto">
+                                    <h5 class="h5-title">Pasta Italiana</h5>
+                                    <p>Experimente nossa seleção de massas frescas, com receitas passadas de geração em geração.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- Fim da seção do banner -->
+
+        
+    <!-- Seção "Sobre Nós" -->
+            <section class="about-sec section" id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+    <!-- Título e subtítulo centralizados da seção -->
+                            <div class="sec-title text-center mb-5">
+                                <p class="sec-sub-title mb-3">Sobre Nós</p>
+                                <h2 class="h2-title">Descubra a história do <span>nosso restaurante</span></h2>
+    <!-- Elemento gráfico abaixo do título -->                          
+                                <div class="sec-title-shape mb-4">
+                                    <img src="assets/images/title-shape.svg" alt="">
+                                </div>
+    <!-- Descrição sobre o restaurante -->                            
+                                <p>Bem-vindo ao coração da gastronomia italiana, onde cada prato conta uma história de tradição e paixão culinária. 
+                                    Nossas receitas são inspiradas nas ricas regiões da Itália e criadas com os ingredientes mais frescos, selecionados cuidadosamente de produtores locais.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 m-auto">
+    <!-- Seção de vídeo -->
+                            <div class="about-video">
+                                <div class="about-video-img" style="background-image: url(assets/images/about.jpg);">
+                                </div>
+    <!-- Botão de reprodução para o vídeo -->                            
+                                <div class="play-btn-wp">
+                                    <a href="assets/images/video.mp4" data-fancybox="video" class="play-btn">
+                                        <i class="uil uil-play"></i>
+
+                                    </a>
+                                    <span>Assista ao Preparo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- Seção "Nosso Cardápio" -->
+            <section style="background-image: url(assets/images/menu-bg.png);"
+                class="our-menu section bg-light repeat-img" id="menu">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">Nosso Cardápio</p>
+                                    <h2 class="h2-title">Descubra os sabores da <span>Itália</span></h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    <!-- Abas do cardápio -->
+                        <div class="menu-tab-wp">
+                            <div class="row">
+                                <div class="col-lg-12 m-auto">
+                                    <div class="menu-tab text-center">
+                                        <ul class="filters">
+    <!-- Botões de filtro para as categorias do menu -->
+                                            <div class="filter-active"></div>
+    <!-- Filtro para mostrar todos os itens -->
+                                            <li class="filter" data-filter=".Todos, .Antipasti, .Primi, .Secondi">
+                                                <img src="assets/images/menu-1.png" alt="">
+                                                Todos
+                                            </li>
+    <!-- Filtros para categorias específicas do menu -->                                        
+                                            <li class="filter" data-filter=".Antipasti">
+                                                <img src="assets/images/menu-2.png" alt="">
+                                                Antipasti
+                                            </li>
+                                            <li class="filter" data-filter=".Primi">
+                                                <img src="assets/images/menu-3.png" alt="">
+                                                Primi
+                                            </li>
+                                            <li class="filter" data-filter=".Secondi">
+                                                <img src="assets/images/menu-4.png" alt="">
+                                                Secondi
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    <!-- Listagem dos Pratos do Menu -->
+                        <div class="menu-list-row">
+                            <div class="row g-xxl-5 bydefault_show" id="menu-dish">
+    <!-- Exemplo de um item do menu (Insalata Caprese) -->                        
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Antipasti" data-cat="Antipasti">
+                                    <div class="dish-box text-center">
+    <!-- Imagem do prato -->                                
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/1.png" alt="">
+                                        </div>
+    <!-- Avaliação do prato -->                                
+                                        <div class="dish-rating">
+                                            5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+    <!-- Título e informações do prato -->                                
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Insalata Caprese</h3>
+                                            <p>300 calorias</p>
+                                        </div>
+    <!-- Informações adicionais do prato -->                                
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Vegetariano</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+    <!-- Preço e botão de adição ao carrinho -->                                
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 9,99</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Insalata Caprese" data-price="9,99" data-image="assets/images/dish/1.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                    
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+    <!-- Cada item do menu segue a mesma estrutura, mas com informações específicas para cada prato -->
+
+    <!-- Item 2 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Antipasti" data-cat="Antipasti">
+                                    <div class="dish-box text-center">
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/2.png" alt="">
+                                        </div>
+                                        <div class="dish-rating">
+                                            4.3
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Spaghetti Carbonara</h3>
+                                            <p>500 calorias</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Não Veg</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 12,99</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Spaghetti Carbonara" data-price="12,99" data-image="assets/images/dish/2.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+    <!-- Item 3 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Primi" data-cat="Primi">
+                                    <div class="dish-box text-center">
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/3.png" alt="">
+                                        </div>
+                                        <div class="dish-rating">
+                                            4
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Scaloppine alla Milanese</h3>
+                                            <p>450 calorias</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Não Veg</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 15,99</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Scaloppine Milanese" data-price="15,99" data-image="assets/images/dish/3.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+    <!-- Item 4 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Primi" data-cat="Primi">
+                                    <div class="dish-box text-center">
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/4.png" alt="">
+                                        </div>
+                                        <div class="dish-rating">
+                                            4.5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Risotto ai Funghi</h3>
+                                            <p>350 calorias</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Vegetariano</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 13,50</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Risotto Funghi" data-price="13,50" data-image="assets/images/dish/4.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+    <!-- Item 5 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Secondi" data-cat="Secondi">
+                                    <div class="dish-box text-center">
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/5.png" alt="">
+                                        </div>
+                                        <div class="dish-rating">
+                                            5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Branzino Grigliato</h3>
+                                            <p>300 calorias</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Não Veg</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 18,99</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Branzino Grigliato" data-price="18,99" data-image="assets/images/dish/5.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                    
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+    <!-- Item 6 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp Secondi" data-cat="Secondi">
+                                    <div class="dish-box text-center">
+                                        <div class="dist-img">
+                                            <img src="assets/images/dish/6.png" alt="">
+                                        </div>
+                                        <div class="dish-rating">
+                                            5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title">Lasagna Al Forno</h3>
+                                            <p>420 calorias</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Tipo</p>
+                                                    <b>Vegetariano</b>
+                                                </li>
+                                                <li>
+                                                    <p>Pessoas</p>
+                                                    <b>1-2</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>R$ 89,99</b>
+                                                </li>
+                                                <li>
+                                                    <button class="dish-add-btn" data-id="Lasagna Al Forno" data-price="89,99"data-image="assets/images/dish/1.png">
+                                                        <i class="uil uil-plus"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Seção da Pizza Margherita  -->
+    <!-- Cria uma seção com duas colunas; 'section' é uma classe geral para seções -->
+            <section class="two-col-sec section">
+    <!-- 'container' é uma classe do Bootstrap para centralizar e alinhar o conteúdo -->
+                <div class="container">
+    <!-- 'row' cria uma linha no grid do Bootstrap; 'align-items-center' centraliza verticalmente os itens nas colunas -->
+                    <div class="row align-items-center">
+    <!-- Define uma coluna que ocupa 5 das 12 colunas possíveis em telas grandes (lg para 'large') -->
+                        <div class="col-lg-5">
+    <!-- 'sec-img' classe personalizada para estilos de imagem; 'mt-5' adiciona uma margem superior -->
+                            <div class="sec-img mt-5">
+                                <img src="assets/images/pizza.png" alt="">
+                            </div>
+                        </div>
+    <!-- Outra coluna, ocupando 7 das 12 colunas em telas grandes -->
+                        <div class="col-lg-7">
+    <!-- 'sec-text'classe personalizada para estilizar o texto -->
+                            <div class="sec-text">
+    <!-- Título da seção com a classe 'xxl-title', indicando um estilo de título grande -->
+                                <h2 class="xxl-title">Pizza Margherita</h2>
+    <!-- Parágrafos descrevendo a pizza Margherita -->
+                                <p>A verdadeira pizza Margherita, com molho de tomate artesanal, mozzarella fresca e manjericão, trazendo os sabores da Itália para a sua mesa. 
+                                    Uma receita clássica que celebra as cores da bandeira italiana..</p>
+                                <p>Desfrute de uma fatia da tradição, preparada no forno a lenha para perfeição crocante.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- Seção da Pizza Margherita  -->
+            <section class="two-col-sec section pt-0">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-2">
+                            <div class="sec-text">
+                                <h2 class="xxl-title">Lasagna al Forno</h2>
+                                <p>Nossa lasanha ao forno é uma obra de arte culinária, com camadas de massa fresca, ragu à bolonhesa, e ricota cremosa, cada mordida é uma viagem ao coração da cozinha italiana.</p>
+                                <p>Experimente o conforto em cada porção, assada lentamente para intensificar o sabor.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-1">
+                            <div class="sec-img">
+                                <img src="assets/images/dish/6.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Reserva de mesa -->
+            <section class="book-table section bg-light">
+                <div class="book-table-shape">
+                    <img src="assets/images/table-leaves-shape.png" alt="">
+                </div>
+
+                <div class="book-table-shape book-table-shape2">
+                    <img src="assets/images/table-leaves-shape.png" alt="">
+                </div>
+
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">Reserva de Mesa</p>
+                                    <h2 class="h2-title">Horários Disponíveis</h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-table-info">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4">
+                                    <div class="table-title text-center">
+                                        <h3>Segunda a Quinta</h3>
+                                        <p>9:00 - 22:00</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="call-now text-center">
+                                        <i class="uil uil-phone"></i>
+                                        <a href="tel:+91-8866998866">(12)98207-1116</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="table-title text-center">
+                                        <h3>Sexta a Domingo</h3>
+                                        <p>11:00 - 00:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+ <!-- Galeria de imagens  -->
+                        <div class="row" id="gallery">
+                            <div class="col-lg-10 m-auto">
+                                <div class="book-table-img-slider" id="icon">
+                                    <div class="swiper-wrapper">
+                                        <a href="assets/images/bt1.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt1.png)"></a>
+                                        <a href="assets/images/bt2.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt2.png)"></a>
+                                        <a href="assets/images/bt3.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt3.png)"></a>
+                                        <a href="assets/images/bt4.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt4.png)"></a>
+                                        <a href="assets/images/bt1.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt1.png)"></a>
+                                        <a href="assets/images/bt2.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt2.png)"></a>
+                                        <a href="assets/images/bt3.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt3.png)"></a>
+                                        <a href="assets/images/bt4.png" data-fancybox="table-slider"
+                                            class="book-table-img back-img swiper-slide"
+                                            style="background-image: url(assets/images/bt4.png)"></a>
+                                    </div>
+
+                                    <div class="swiper-button-wp">
+                                        <div class="swiper-button-prev swiper-button">
+                                            <i class="uil uil-angle-left"></i>
+                                        </div>
+                                        <div class="swiper-button-next swiper-button">
+                                            <i class="uil uil-angle-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </section>
+    <!-- Nossa Equipe -->
+            <section class="our-team section">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">Nossa Equipe</p>
+                                    <h2 class="h2-title">Conheça nossos Chefs</h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row team-slider">
+                            <div class="swiper-wrapper">
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(assets/images/chef/c1.jpg);"
+                                            class="team-img back-img">
+
+                                        </div>
+                                        <h3 class="h3-title">Nilton Hava</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(assets/images/chef/c2.jpg);"
+                                            class="team-img back-img">
+
+                                        </div>
+                                        <h3 class="h3-title">Rafael Sousa</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(assets/images/chef/c3.jpg);"
+                                            class="team-img back-img">
+
+                                        </div>
+                                        <h3 class="h3-title">Cássio Viller</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(assets/images/chef/c4.jpg);"
+                                            class="team-img back-img">
+
+                                        </div>
+                                        <h3 class="h3-title">Paulo Henrico</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 swiper-slide">
+                                    <div class="team-box text-center">
+                                        <div style="background-image: url(assets/images/chef/c5.jpg);"
+                                            class="team-img back-img">
+
+                                        </div>
+                                        <h3 class="h3-title">Savio Play</h3>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-wp">
+                                <div class="swiper-button-prev swiper-button">
+                                    <i class="uil uil-angle-left"></i>
+                                </div>
+                                <div class="swiper-button-next swiper-button">
+                                    <i class="uil uil-angle-right"></i>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- Testemunhos -->
+            <section class="testimonials section bg-light">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">O que eles dizem</p>
+                                    <h2 class="h2-title">O que nossos clientes <span>dizem sobre nós</span></h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="testimonials-img">
+                                    <img src="assets/images/testimonial-img.png" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="testimonials-box">
+                                            <div class="testimonial-box-top">
+                                                <div class="testimonials-box-img back-img"
+                                                    style="background-image: url(assets/images/testimonials/t1.jpg);">
+                                                </div>
+                                                <div class="star-rating-wp">
+                                                    <div class="star-rating">
+                                                        <span class="star-rating__fill" style="width:85%"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="testimonials-box-text">
+                                                <h3 class="h3-title">
+                                                    Marcos Vinicius
+                                                </h3>
+                                                <p>Experiência incrível! A autenticidade dos sabores italianos realmente me transportou para a Itália. Melhor pizza que já provei!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="testimonials-box">
+                                            <div class="testimonial-box-top">
+                                                <div class="testimonials-box-img back-img"
+                                                    style="background-image: url(assets/images/testimonials/t2.jpg);">
+                                                </div>
+                                                <div class="star-rating-wp">
+                                                    <div class="star-rating">
+                                                        <span class="star-rating__fill" style="width:80%"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="testimonials-box-text">
+                                                <h3 class="h3-title">
+                                                    Carlos Andre
+                                                </h3>
+                                                <p>O ambiente acolhedor e a excelente culinária fizeram da nossa noite algo especial. Recomendo o risoto - simplesmente delicioso!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="testimonials-box">
+                                            <div class="testimonial-box-top">
+                                                <div class="testimonials-box-img back-img"
+                                                    style="background-image: url(assets/images/testimonials/t3.jpg);">
+                                                </div>
+                                                <div class="star-rating-wp">
+                                                    <div class="star-rating">
+                                                        <span class="star-rating__fill" style="width:89%"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="testimonials-box-text">
+                                                <h3 class="h3-title">
+                                                    Alan Ferreira
+                                                </h3>
+                                                <p>O ambiente acolhedor e a excelente culinária fizeram da nossa noite algo especial. Recomendo o risoto - simplesmente delicioso!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="testimonials-box">
+                                            <div class="testimonial-box-top">
+                                                <div class="testimonials-box-img back-img"
+                                                    style="background-image: url(assets/images/testimonials/t4.jpg);">
+                                                </div>
+                                                <div class="star-rating-wp">
+                                                    <div class="star-rating">
+                                                        <span class="star-rating__fill" style="width:100%"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="testimonials-box-text">
+                                                <h3 class="h3-title">
+                                                    Saul Caim
+                                                </h3>
+                                                <p>O ambiente acolhedor e a excelente culinária fizeram da nossa noite algo especial. Recomendo o risoto - simplesmente delicioso!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <!-- FAQ -->
+            <section class="faq-sec section-repeat-img" style="background-image: url(assets/images/faq-bg.png);">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">FAQs</p>
+                                    <h2 class="h2-title">Perguntas <span>Frequentes</span></h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <div class="faq-box">
+                                <h4 class="h4-title">>Quais são os horários de funcionamento do restaurante?</h4>
+                                <p>O restaurante está aberto de segunda a sexta, das 12h às 23h, e aos fins de semana, das 11h às 00h.</p>
+                            </div>
+                            <div class="faq-box">
+                                <h4 class="h4-title">Como posso fazer uma reserva?</h4>
+                                <p>Reservas podem ser feitas online através do nosso site ou por telefone, entrando em contato diretamente com o restaurante.</p>
+                            </div>
+                            <div class="faq-box">
+                                <h4 class="h4-title">Qual é o tempo médio de espera para entrega?</h4>
+                                <p>O tempo médio de espera para entregas é de 30 a 45 minutos, dependendo da sua localização e da demanda no momento do pedido.</p>
+                            </div>
+                            <div class="faq-box">
+                                <h4 class="h4-title">O restaurante oferece opções vegetarianas e veganas?</h4>
+                                <p>Sim, oferecemos uma variedade de pratos vegetarianos e veganos. Confira nosso cardápio para mais detalhes.</p>
+                            </div>
+                            <div class="faq-box">
+                                <h4 class="h4-title">Qual é o custo da entrega?</h4>
+                                <p>A taxa de entrega varia de acordo com a distância, mas oferecemos entrega gratuita em pedidos acima de um determinado valor.</p>
+                            </div>
+                            <div class="faq-box">
+                                <h4 class="h4-title">Quais são os benefícios do programa de fidelidade?</h4>
+                                <p>Nosso programa de fidelidade oferece descontos, ofertas especiais e pontos que podem ser trocados por prêmios e refeições gratuitas. </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+    <!-- Blog -->
+            <div class="bg-pattern bg-light repeat-img"
+                style="background-image: url(assets/images/blog-pattern-bg.png);">
+                <section class="blog-sec section" id="blog">
+                    <div class="sec-wp">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="sec-title text-center mb-5">
+                                        <p class="sec-sub-title mb-3">Nosso Blog</p>
+                                        <h2 class="h2-title">Últimas Publicações</span></h2>
+                                        <div class="sec-title-shape mb-4">
+                                            <img src="assets/images/title-shape.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="blog-box">
+                                        <div class="blog-img back-img"
+                                            style="background-image: url(assets/images/blog/blog1.png);"></div>
+                                        <div class="blog-text">
+                                            <p class="blog-date">15 de Setembro de 2021</p>
+                                            <a href="#" class="h4-title">>Antipasti Italianos: Uma Introdução</a>
+                                            <p>xplore o mundo dos antipasti, os tradicionais aperitivos italianos, e descubra como criar uma seleção perfeita para começar sua refeição.</p>
+                                            <a href="#" class="sec-btn">Leia Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="blog-box">
+                                        <div class="blog-img back-img"
+                                            style="background-image: url(assets/images/blog/blog2.png);"></div>
+                                        <div class="blog-text">
+                                            <p class="blog-date">15 de Outubro de 2022</p>
+                                            <a href="#" class="h4-title">Massas Italianas Caseiras</a>
+                                            <p>Aprenda a arte de fazer massas caseiras com nossas dicas e receitas, e traga o verdadeiro sabor da Itália para sua cozinha.</p>
+                                            <a href="#" class="sec-btn">Leia Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="blog-box">
+                                        <div class="blog-img back-img"
+                                            style="background-image: url(assets/images/blog/blog3.png);"></div>
+                                        <div class="blog-text">
+                                            <p class="blog-date">15 de Novembro de 2023</p>
+                                            <a href="#" class="h4-title">Sobremesas Italianas Clássicas</a>
+                                            <p>Delicie-se com as histórias e receitas das sobremesas italianas mais amadas, desde o Tiramisù até a Panna Cotta.</p>
+                                            <a href="#" class="sec-btn">Leia Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    <!-- Newsletter -->
+                <section class="newsletter-sec section pt-0">
+                    <div class="sec-wp">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 m-auto">
+                                    <div class="newsletter-box text-center back-img white-text"
+                                        style="background-image: url(assets/images/news.jpg);">
+                                        <div class="bg-overlay dark-overlay"></div>
+                                        <div class="sec-wp">
+                                            <div class="newsletter-box-text">
+                                                <h2 class="h2-title">Assine nossa newsletter</h2>
+                                                <p>Mantenha-se atualizado com as últimas novidades e ofertas especiais do nosso restaurante italiano.</p>
+                                            </div>
+                                            <form action="#" class="newsletter-form">
+                                                <input type="email" class="form-input"
+                                                    placeholder="Escreva seu e-mail aqui" required>
+                                                <button type="submit" class="sec-btn primary-btn">Enviar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- footer starts  -->
+            <footer class="site-footer" id="contact">
+                <div class="top-footer section">
+                    <div class="sec-wp">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="footer-info">
+                                        <div class="footer-logo">
+                                            <a href="index.html">
+                                                <img src="logo.png" alt="">
+                                            </a>
+                                        </div>
+                                        <p>Descubra os sabores autênticos da Itália em nosso acolhedor restaurante.
+                                        </p>
+                                        <div class="social-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-facebook-f"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-github-alt"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="uil uil-youtube"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="footer-flex-box">
+                                        <div class="footer-table-info">
+                                            <h3 class="h3-title">Horários</h3>
+                                            <ul>
+                                                <li><i class="uil uil-clock"></i> Seg-Qui: 9h - 22h</li>
+                                                <li><i class="uil uil-clock"></i> Sex-Dom: 11h - 22h</li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-menu food-nav-menu">
+                                            <h3 class="h3-title">Links</h3>
+                                            <ul class="column-2">
+                                                <li>
+                                                    <a href="#home" class="footer-active-menu">Início</a>
+                                                </li>
+                                                <li><a href="#about">Sobre</a></li>
+                                                <li><a href="#menu">Cardápio</a></li>
+                                                <li><a href="#gallery">Galeria</a></li>
+                                                <li><a href="#blog">Blog</a></li>
+                                                <li><a href="#contact">Contato</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-menu">
+                                            <h3 class="h3-title">Empresa</h3>
+                                            <ul>
+                                                <li><a href="#">Termos & Condições</a></li>
+                                                <li><a href="#">Política de Privacidade</a></li>
+                                                <li><a href="#">Política de Cookies</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="copyright-text">
+                                    <p>Direitos autorais &copy; 2023 <span class="name">Restaurante Italiano Delizioso.</span>Todos os direitos reservados.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="scrolltop"><i class="uil uil-angle-up"></i></button>
+                    </div>
+                </div>
+            </footer>
+
+
+
+        </div>
+    </div>
+
+<!-- Modal do Carrinho de Compras -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartModalLabel">Carrinho de Compras</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Itens do Carrinho serão inseridos aqui -->
+            </div>
+            <div class="modal-footer">
+
+                
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
+                <button type="button" class="btn btn-success" id="checkoutButton">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- jquery  -->
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+
+    <!-- fontawesome  -->
+    <script src="assets/js/font-awesome.min.js"></script>
+
+    <!-- swiper slider  -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!-- mixitup -- filter  -->
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+
+    <!-- fancy box  -->
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+
+    <!-- parallax  -->
+    <script src="assets/js/parallax.min.js"></script>
+
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+
+    <!-- scroll trigger  -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- scroll to plugin  -->
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <!-- rellax  -->
+    <!-- <script src="assets/js/rellax.min.js"></script> -->
+    <!-- <script src="assets/js/rellax-custom.js"></script> -->
+    <!-- smooth scroll  -->
+    <script src="assets/js/smooth-scroll.js"></script>
+    <!-- custom js  -->
+    <script src="main.js"></script>
+
+</body>
+
+</html>
